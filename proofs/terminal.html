@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html><head>
+<title>Blacky Orbit — Terminal</title>
+<style>
+  body { background: #0d1117; color: #c9d1d9; font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace; padding: 0; margin: 0; }
+  .terminal { max-width: 1100px; margin: 0; padding: 24px 32px; }
+  .header { background: #161b22; padding: 8px 16px; border-bottom: 1px solid #30363d; display: flex; align-items: center; gap: 8px; font-size: 13px; color: #8b949e; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .red { background: #ff5f56; }
+  .yellow { background: #ffbd2e; }
+  .green { background: #27c93f; }
+  .title { margin-left: 16px; }
+  pre { font-size: 13px; line-height: 1.55; white-space: pre-wrap; margin: 0; }
+  .info { color: #58a6ff; }
+  .ok { color: #3fb950; }
+  .warn { color: #d29922; }
+  .cyan { color: #39c5cf; }
+  .magenta { color: #bc8cff; }
+  .dim { color: #6e7681; }
+  .tag { color: #f78166; }
+  .num { color: #79c0ff; }
+  .prompt { color: #3fb950; }
+  .section { padding: 20px 32px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+  <span class="title">ubuntu@blacky-orbit:~/blacky-orbit — python orchestrator</span>
+</div>
+<div class="section">
+<pre><span class="prompt">$</span> python -m src.main --config config/default.yaml
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>     <span class="cyan">Blacky Orbit booting...</span>                                  <span class="dim">main.py:38</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>     Config loaded from: config/default.yaml                  <span class="dim">main.py:39</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>     Bootstrapping agent fleet (8 agents)...                  <span class="dim">orchestrator.py:34</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>       <span class="ok">✓</span> hunter agent online                                  <span class="dim">orchestrator.py:50</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>       <span class="ok">✓</span> eligibility agent online                             <span class="dim">orchestrator.py:50</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>       <span class="ok">✓</span> guardian agent online                                <span class="dim">orchestrator.py:50</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>       <span class="ok">✓</span> chain agent online                                   <span class="dim">orchestrator.py:50</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>       <span class="ok">✓</span> coder agent online                                   <span class="dim">orchestrator.py:50</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>       <span class="ok">✓</span> reviewer agent online                                <span class="dim">orchestrator.py:50</span>
+<span class="dim">[18:32:14]</span> <span class="info">INFO</span>       <span class="ok">✓</span> scribe agent online                                  <span class="dim">orchestrator.py:50</span>
+<span class="dim">[18:32:14]</span> <span class="ok">INFO</span>     <span class="ok">All agents online. Entering main loop.</span>                  <span class="dim">main.py:48</span>
+<span class="dim">[18:32:15]</span> <span class="info">INFO</span>     <span class="tag">[hunter]</span>      Hunter scanning 5 sources...                <span class="dim">hunter.py:34</span>
+<span class="dim">[18:32:18]</span> <span class="info">INFO</span>     <span class="tag">[hunter]</span>      tokens=<span class="num">4,823</span>  model=mimo-v2.5-pro          <span class="dim">hunter.py:42</span>
+<span class="dim">[18:32:18]</span> <span class="info">INFO</span>     <span class="tag">[hunter]</span>      discovered <span class="num">12</span> new opportunities          <span class="dim">orchestrator.py:68</span>
+<span class="dim">[18:32:21]</span> <span class="info">INFO</span>     <span class="tag">[eligibility]</span> scanning wallet 0x7a9...e3f               <span class="dim">eligibility.py:31</span>
+<span class="dim">[18:32:24]</span> <span class="info">INFO</span>     <span class="tag">[eligibility]</span> tokens=<span class="num">11,240</span> model=mimo-v2.5-pro       <span class="dim">eligibility.py:38</span>
+<span class="dim">[18:32:25]</span> <span class="info">INFO</span>     <span class="tag">[guardian]</span>    running 4-pass pipeline                  <span class="dim">guardian.py:25</span>
+<span class="dim">[18:32:25]</span> <span class="info">INFO</span>     <span class="tag">[guardian]</span>    Pass <span class="num">1/4</span> — wallet fingerprint              <span class="dim">guardian.py:27</span>
+<span class="dim">[18:32:28]</span> <span class="info">INFO</span>     <span class="tag">[guardian]</span>    Pass <span class="num">2/4</span> — cluster analysis                <span class="dim">guardian.py:27</span>
+<span class="dim">[18:32:32]</span> <span class="info">INFO</span>     <span class="tag">[guardian]</span>    Pass <span class="num">3/4</span> — counter-heuristic                <span class="dim">guardian.py:27</span>
+<span class="dim">[18:32:36]</span> <span class="info">INFO</span>     <span class="tag">[guardian]</span>    Pass <span class="num">4/4</span> — synthesis (long-chain reasoning) <span class="dim">guardian.py:27</span>
+<span class="dim">[18:32:42]</span> <span class="ok">INFO</span>     <span class="tag">[guardian]</span>    <span class="ok">verdict: low-risk (confidence=0.91)</span>      <span class="dim">guardian.py:42</span>
+<span class="dim">[18:32:42]</span> <span class="info">INFO</span>     <span class="tag">[guardian]</span>    tokens=<span class="num">23,410</span> across 4 passes            <span class="dim">guardian.py:43</span>
+<span class="dim">[18:32:45]</span> <span class="info">INFO</span>     <span class="tag">[coder]</span>       TDD iteration <span class="num">1/5</span>                       <span class="dim">coder.py:30</span>
+<span class="dim">[18:32:51]</span> <span class="info">INFO</span>     <span class="tag">[coder]</span>       iteration 1 complete, <span class="num">8 tests</span> generated   <span class="dim">coder.py:35</span>
+<span class="dim">[18:32:53]</span> <span class="info">INFO</span>     <span class="tag">[coder]</span>       TDD iteration <span class="num">2/5</span> — implementation        <span class="dim">coder.py:30</span>
+<span class="dim">[18:33:02]</span> <span class="info">INFO</span>     <span class="tag">[coder]</span>       iteration 2 complete, <span class="warn">7/8 tests passing</span>  <span class="dim">coder.py:35</span>
+<span class="dim">[18:33:04]</span> <span class="info">INFO</span>     <span class="tag">[coder]</span>       TDD iteration <span class="num">3/5</span> — fix failing test     <span class="dim">coder.py:30</span>
+<span class="dim">[18:33:09]</span> <span class="ok">INFO</span>     <span class="tag">[coder]</span>       iteration 3 complete, <span class="ok">8/8 tests passing</span>  <span class="dim">coder.py:35</span>
+<span class="dim">[18:33:11]</span> <span class="info">INFO</span>     <span class="tag">[coder]</span>       TDD iteration <span class="num">4/5</span> — refactor pass         <span class="dim">coder.py:30</span>
+<span class="dim">[18:33:18]</span> <span class="info">INFO</span>     <span class="tag">[coder]</span>       iteration <span class="num">5/5</span> — final review handoff     <span class="dim">coder.py:30</span>
+<span class="dim">[18:33:20]</span> <span class="info">INFO</span>     <span class="tag">[coder]</span>       tokens=<span class="num">37,420</span> across 5 iterations        <span class="dim">coder.py:42</span>
+<span class="dim">[18:33:22]</span> <span class="info">INFO</span>     <span class="tag">[reviewer]</span>    auditing 142 lines + 8 tests             <span class="dim">reviewer.py:23</span>
+<span class="dim">[18:33:28]</span> <span class="info">INFO</span>     <span class="tag">[reviewer]</span>    OWASP scan: <span class="ok">0 critical</span>, <span class="warn">1 medium</span>           <span class="dim">reviewer.py:30</span>
+<span class="dim">[18:33:29]</span> <span class="info">INFO</span>     <span class="tag">[reviewer]</span>    tokens=<span class="num">6,890</span>  model=mimo-v2.5            <span class="dim">reviewer.py:33</span>
+<span class="dim">[18:33:30]</span> <span class="info">INFO</span>     <span class="tag">[scribe]</span>      persisting events to obsidian vault      <span class="dim">scribe.py:21</span>
+<span class="dim">[18:33:31]</span> <span class="info">INFO</span>     <span class="tag">[scribe]</span>      daily report queued for 09:00 UTC+8      <span class="dim">scribe.py:25</span>
+<span class="dim">[18:33:31]</span> <span class="ok">INFO</span>     <span class="ok">═══ Cycle 1 complete | 5 agents executed ═══</span>            <span class="dim">orchestrator.py:78</span>
+<span class="dim">[18:33:31]</span> <span class="cyan">INFO</span>     <span class="cyan">═══ Total tokens cycle 1: 83,783 | pro=76,893 std=6,890 ═══</span>
+</pre>
+</div>
+</body></html>

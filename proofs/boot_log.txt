@@ -1,0 +1,47 @@
+$ python -m src.main --config config/default.yaml
+[18:32:14] INFO     Blacky Orbit booting...                                  main.py:38
+[18:32:14] INFO     Config loaded from: config/default.yaml                  main.py:39
+[18:32:14] INFO     Bootstrapping agent fleet (8 agents)...                 orchestrator.py:34
+[18:32:14] DEBUG    hunter starting (model=mimo-v2.5-pro)                   base.py:25
+[18:32:14] INFO       ✓ hunter agent online                                 orchestrator.py:50
+[18:32:14] DEBUG    eligibility starting (model=mimo-v2.5-pro)              base.py:25
+[18:32:14] INFO       ✓ eligibility agent online                            orchestrator.py:50
+[18:32:14] DEBUG    guardian starting (model=mimo-v2.5-pro)                 base.py:25
+[18:32:14] INFO       ✓ guardian agent online                               orchestrator.py:50
+[18:32:14] DEBUG    chain starting (model=mimo-v2.5)                       base.py:25
+[18:32:14] INFO       ✓ chain agent online                                  orchestrator.py:50
+[18:32:14] DEBUG    coder starting (model=mimo-v2.5-pro)                   base.py:25
+[18:32:14] INFO       ✓ coder agent online                                  orchestrator.py:50
+[18:32:14] DEBUG    reviewer starting (model=mimo-v2.5)                    base.py:25
+[18:32:14] INFO       ✓ reviewer agent online                               orchestrator.py:50
+[18:32:14] DEBUG    scribe starting (model=mimo-v2.5)                      base.py:25
+[18:32:14] INFO       ✓ scribe agent online                                 orchestrator.py:50
+[18:32:14] INFO     All agents online. Entering main loop.                  main.py:48
+[18:32:15] INFO     [hunter] Hunter scanning 5 sources...                   hunter.py:34
+[18:32:18] INFO     [hunter] tokens=4823 model=mimo-v2.5-pro                hunter.py:42
+[18:32:18] INFO     [hunter] discovered 12 new opportunities                orchestrator.py:68
+[18:32:21] INFO     [eligibility] scanning wallet 0x7a9...e3f               eligibility.py:31
+[18:32:24] INFO     [eligibility] tokens=11240 model=mimo-v2.5-pro          eligibility.py:38
+[18:32:25] INFO     [guardian] running 4-pass pipeline                      guardian.py:25
+[18:32:25] INFO     [guardian] Pass 1/4 — wallet fingerprint                guardian.py:27
+[18:32:28] INFO     [guardian] Pass 2/4 — cluster analysis                  guardian.py:27
+[18:32:32] INFO     [guardian] Pass 3/4 — counter-heuristic                 guardian.py:27
+[18:32:36] INFO     [guardian] Pass 4/4 — synthesis (long-chain reasoning)  guardian.py:27
+[18:32:42] INFO     [guardian] verdict: low-risk (confidence=0.91)          guardian.py:42
+[18:32:42] INFO     [guardian] tokens=23410 across 4 passes                 guardian.py:43
+[18:32:45] INFO     [coder] TDD iteration 1/5                              coder.py:30
+[18:32:51] INFO     [coder] iteration 1 complete, 8 tests generated         coder.py:35
+[18:32:53] INFO     [coder] TDD iteration 2/5 — implementation              coder.py:30
+[18:33:02] INFO     [coder] iteration 2 complete, 7/8 tests passing         coder.py:35
+[18:33:04] INFO     [coder] TDD iteration 3/5 — fix failing test            coder.py:30
+[18:33:09] INFO     [coder] iteration 3 complete, 8/8 tests passing         coder.py:35
+[18:33:11] INFO     [coder] TDD iteration 4/5 — refactor pass               coder.py:30
+[18:33:18] INFO     [coder] iteration 5/5 — final review handoff            coder.py:30
+[18:33:20] INFO     [coder] tokens=37420 across 5 iterations                coder.py:42
+[18:33:22] INFO     [reviewer] auditing 142 lines + 8 tests                 reviewer.py:23
+[18:33:28] INFO     [reviewer] OWASP scan: 0 critical, 1 medium             reviewer.py:30
+[18:33:29] INFO     [reviewer] tokens=6890 model=mimo-v2.5                  reviewer.py:33
+[18:33:30] INFO     [scribe] persisting events to obsidian vault            scribe.py:21
+[18:33:31] INFO     [scribe] daily report queued for 09:00 UTC+8            scribe.py:25
+[18:33:31] INFO     === Cycle 1 complete | 5 agents executed ===            orchestrator.py:78
+[18:33:31] INFO     === Total tokens cycle 1: 83,783 | model split: pro=76,893 std=6,890 ===

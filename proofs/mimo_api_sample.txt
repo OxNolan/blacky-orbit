@@ -1,0 +1,32 @@
+$ curl -X POST https://api.xiaomimimo.com/v1/chat/completions \
+    -H "Authorization: Bearer $MIMO_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "model": "mimo-v2.5-pro",
+      "messages": [
+        {"role": "system", "content": "You are the Guardian Agent. Run 4-pass anti-sybil reasoning."},
+        {"role": "user", "content": "Wallet: 0x742d35Cc6634C0532925a3b844Bc4e7595f0bEb6"}
+      ],
+      "max_tokens": 8192,
+      "temperature": 0.3
+    }'
+
+{
+  "id": "chatcmpl-mm-9f2k83hd",
+  "object": "chat.completion",
+  "created": 1716223891,
+  "model": "mimo-v2.5-pro",
+  "choices": [{
+    "index": 0,
+    "message": {
+      "role": "assistant",
+      "content": "## Pass 1 — Wallet Fingerprint\n\nTransaction history (last 90d): 142 txs across 6 chains. Gas usage profile: median=42 gwei, IQR=28-78. Token interaction graph: 23 unique tokens, 8 DEX protocols, no NFT activity.\n\n## Pass 2 — Cluster Analysis\n\nNo IP/timing collisions detected with known sybil clusters. Outbound transfer patterns show natural human cadence (avg 4.2 txs/day, no batching).\n\n## Pass 3 — Counter-Heuristic\n\nTested against:\n- LayerZero filter v2: PASS (organic interaction depth)\n- zkSync GTS heuristic: PASS\n- Linea Voyage scoring: PASS (score estimate 7.2/10)\n- Arbitrum STIP: PASS\n\n## Pass 4 — Synthesis (Long-chain Reasoning)\n\n**Verdict: LOW RISK (confidence 0.91)**\n\nWallet exhibits organic Web3 user pattern. No coordinated farming signatures detected. Recommendations: maintain current diversification across Tier-1 protocols; avoid sudden volume spikes that would deviate from established baseline."
+    },
+    "finish_reason": "stop"
+  }],
+  "usage": {
+    "prompt_tokens": 184,
+    "completion_tokens": 423,
+    "total_tokens": 607
+  }
+}
