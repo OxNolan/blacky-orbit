@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  orchestrator:
+    build: .
+    restart: unless-stopped
+    command: python -m src.main --config config/default.yaml
+    env_file: .env
+    depends_on:
+      - redis
+    volumes:
+      - ./config:/app/config:ro
+      - ./data:/app/data
+    environment:
+      REDIS_URL: redis://redis:6379/0
+
+volumes:
+  redis_data:
